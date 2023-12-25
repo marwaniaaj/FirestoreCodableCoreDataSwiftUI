@@ -27,7 +27,7 @@ struct ContentView: View {
                                 Text("\(book.bookTitle): \(book.bookTitleDescription)")
                                     .font(.headline)
                                 + Text(" by \(book.authorName)")
-                                    .foregroundStyle(.secondary)
+                                    .foregroundColor(.secondary)
                             }
                         }
                     }
@@ -40,7 +40,7 @@ struct ContentView: View {
                                 .font(.headline).lineLimit(1)
 
                             Text(author.booksList, format: .list(type: .and))
-                                .foregroundStyle(.secondary)
+                                .foregroundColor(.secondary)
                         }
                     }
                 }
