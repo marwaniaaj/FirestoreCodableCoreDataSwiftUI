@@ -20,6 +20,10 @@
 		7A33CE002B398A3A008312D3 /* Book+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A33CDFF2B398A3A008312D3 /* Book+Extension.swift */; };
 		7A33CE022B398A4B008312D3 /* Author+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A33CE012B398A4B008312D3 /* Author+Extension.swift */; };
 		7A33CE052B3990A3008312D3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A33CE042B3990A3008312D3 /* GoogleService-Info.plist */; };
+		7A33CE072B3994DD008312D3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A33CE062B3994DC008312D3 /* Extensions.swift */; };
+		7A33CE092B399548008312D3 /* Book+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A33CE082B399548008312D3 /* Book+CoreDataClass.swift */; };
+		7A33CE0B2B399555008312D3 /* Author+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A33CE0A2B399555008312D3 /* Author+CoreDataClass.swift */; };
+		7A33CE0D2B3995A9008312D3 /* DecoderError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A33CE0C2B3995A9008312D3 /* DecoderError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +39,10 @@
 		7A33CDFF2B398A3A008312D3 /* Book+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Book+Extension.swift"; sourceTree = "<group>"; };
 		7A33CE012B398A4B008312D3 /* Author+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Author+Extension.swift"; sourceTree = "<group>"; };
 		7A33CE042B3990A3008312D3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7A33CE062B3994DC008312D3 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		7A33CE082B399548008312D3 /* Book+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Book+CoreDataClass.swift"; sourceTree = "<group>"; };
+		7A33CE0A2B399555008312D3 /* Author+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Author+CoreDataClass.swift"; sourceTree = "<group>"; };
+		7A33CE0C2B3995A9008312D3 /* DecoderError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecoderError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,10 +99,14 @@
 			isa = PBXGroup;
 			children = (
 				7A33CDFC2B39896A008312D3 /* Model.xcdatamodeld */,
+				7A33CE0C2B3995A9008312D3 /* DecoderError.swift */,
+				7A33CE062B3994DC008312D3 /* Extensions.swift */,
 				7A33CDD72B3987CE008312D3 /* DataController.swift */,
 				7A33CDD92B3987E7008312D3 /* FirestoreManager.swift */,
 				7A33CDFF2B398A3A008312D3 /* Book+Extension.swift */,
 				7A33CE012B398A4B008312D3 /* Author+Extension.swift */,
+				7A33CE082B399548008312D3 /* Book+CoreDataClass.swift */,
+				7A33CE0A2B399555008312D3 /* Author+CoreDataClass.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -194,12 +206,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A33CE092B399548008312D3 /* Book+CoreDataClass.swift in Sources */,
 				7A33CDC52B398703008312D3 /* ContentView.swift in Sources */,
+				7A33CE072B3994DD008312D3 /* Extensions.swift in Sources */,
 				7A33CDD82B3987CE008312D3 /* DataController.swift in Sources */,
 				7A33CE002B398A3A008312D3 /* Book+Extension.swift in Sources */,
 				7A33CDC32B398703008312D3 /* FirestoreCodableCoreDataSwiftUIApp.swift in Sources */,
 				7A33CE022B398A4B008312D3 /* Author+Extension.swift in Sources */,
+				7A33CE0B2B399555008312D3 /* Author+CoreDataClass.swift in Sources */,
 				7A33CDDA2B3987E7008312D3 /* FirestoreManager.swift in Sources */,
+				7A33CE0D2B3995A9008312D3 /* DecoderError.swift in Sources */,
 				7A33CDFB2B398940008312D3 /* BookView.swift in Sources */,
 				7A33CDFE2B39896A008312D3 /* Model.xcdatamodeld in Sources */,
 			);
