@@ -8,7 +8,7 @@ Since Firestore's support for Swift's Codable API, it became easier to map Fires
 
 
 ### Medium Article:
-[Firestore and Codable Core Data NSManagedObject in SwiftUI](https://medium.com/p/ad9ae5f4eae8/edit)
+[Firestore and Codable Core Data NSManagedObject in SwiftUI](https://medium.com/@marwa.diab/firestore-and-codable-core-data-nsmanagedobject-in-swiftui-ad9ae5f4eae8)
 
 
 ## References
