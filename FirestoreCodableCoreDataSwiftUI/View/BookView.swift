@@ -16,14 +16,14 @@ struct BookView: View {
             Text("\(book.bookTitle): \(book.bookTitleDescription)")
                 .font(.headline)
             + Text(" by \(book.authorName)")
-                .foregroundStyle(.secondary)
+                .foregroundColor(.secondary)
 
-            Text("Published: ").foregroundStyle(.blue)
+            Text("Published: ").foregroundColor(.blue)
             + Text(book.bookPublishDate, style: .date)
 
             if !book.genreList.isEmpty {
                 VStack {
-                    Text("Genre: ").font(.headline).foregroundStyle(.blue)
+                    Text("Genre: ").font(.headline).foregroundColor(.blue)
                     + Text(book.genreList, format: .list(type: .and))
                 }
             }

@@ -27,7 +27,7 @@ struct ContentView: View {
                                 Text("\(book.bookTitle): \(book.bookTitleDescription)")
                                     .font(.headline)
                                 + Text(" by \(book.authorName)")
-                                    .foregroundStyle(.secondary)
+                                    .foregroundColor(.secondary)
                             }
                         }
                     }
