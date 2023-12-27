@@ -31,9 +31,9 @@ class FirestoreManager: ObservableObject {
     }
 }
 
+// MARK: - Books
 extension FirestoreManager {
 
-    // MARK: - Books
     /// Register observer on ``Book`` documents.
     func booksObserver() {
         _ = db.collection("books").addSnapshotListener { snapshot, error in
@@ -55,6 +55,9 @@ extension FirestoreManager {
         }
     }
 
+    /// Add document in `books` collection in Firestore encoded from given ``Book``.
+    /// - Parameter book: ``Book`` object to be stored in Firestore.
+    /// - Returns: Boolean indicates whether document was successfully added or not.
     func addBook(_ book: Book) -> Bool {
         do {
             try db.collection("books").addDocument(from: book)
@@ -65,7 +68,10 @@ extension FirestoreManager {
         }
         return false
     }
-
+    
+    /// Update existing `book` document in Firestore with encoded data from given ``Book``.
+    /// - Parameter book: ``Book`` object to be updated in Firestore.
+    /// - Returns: Boolean indicates whether document was successfully added or not.
     func updateBook(_ book: Book) -> Bool {
         guard let documentId = book.id else { return false }
         do {
@@ -77,8 +83,11 @@ extension FirestoreManager {
         }
         return false
     }
+}
 
-    // MARK: - Author
+// MARK: - Author
+extension FirestoreManager{
+
     /// Register observer on ``Author`` documents.
     func authorsObserver() {
         _ = db.collection("authors").addSnapshotListener { snapshot, error in
@@ -100,6 +109,9 @@ extension FirestoreManager {
         }
     }
 
+    /// Add document in `authors` collection in Firestore encoded from given ``Author``.
+    /// - Parameter author: ``Author`` object to be stored in Firestore.
+    /// - Returns: Boolean indicates whether document was successfully added or not.
     func addAuthor(_ author: Author) -> Bool {
         do {
             try db.collection("authors").addDocument(from: author)
@@ -111,6 +123,9 @@ extension FirestoreManager {
         return false
     }
 
+    /// Update existing `author` document in Firestore with encoded data from given ``Author``.
+    /// - Parameter author: ``Author`` object to be updated in Firestore.
+    /// - Returns: Boolean indicates whether document was successfully added or not.
     func updateAuthor(_ author: Author) -> Bool {
         guard let documentId = author.id else { return false }
         do {
@@ -126,6 +141,7 @@ extension FirestoreManager {
 
 // MARK: - Document References
 extension FirestoreManager {
+    
     static func getBooksDocumentReferences(_ ids: [String]) -> [DocumentReference] {
         return ids.compactMap { id in
             return Firestore.firestore().collection("books").document(id)

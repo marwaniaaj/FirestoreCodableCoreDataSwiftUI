@@ -7,8 +7,6 @@
 
 import CoreData
 
-// TODO: Add Codable Author NSManagedObject subclass.
-
 extension Author {
     var authorName: String {
         get { name ?? NSLocalizedString("Unavailable", comment: "Unavailable Book") }
