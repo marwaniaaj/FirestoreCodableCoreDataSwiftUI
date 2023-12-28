@@ -8,11 +8,16 @@
 import CoreData
 
 public extension CodingUserInfoKey {
+
+    /// Context user-defined key
     static let context = CodingUserInfoKey(rawValue: "context")!
 }
 
 extension Identifiable where Self: NSManagedObject {
-
+    
+    // MARK: - init
+    /// Returns an existing managed object subclass from context,
+    /// or initializes a managed object subclass and inserts it into the specified managed object context.
     init(id: String, context: NSManagedObjectContext) {
 
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: String(describing: Self.classForCoder()))
@@ -34,6 +39,7 @@ extension Identifiable where Self: NSManagedObject {
         self.init(context: context)
     }
 
+    // MARK: - Fetch
     func fetchById<T: NSManagedObject>(entity: T.Type, id: String, context: NSManagedObjectContext) -> T? {
         let request = T.fetchRequest()
         request.predicate = NSPredicate(format: "id == %@", id)
@@ -55,5 +61,11 @@ extension Identifiable where Self: NSManagedObject {
             return NSSet(array: result)
         }
         return nil
+    }
+
+    static func fetchArrayById(_ ids: [String], context: NSManagedObjectContext) -> [Self]? {
+        let request = Self.fetchRequest()
+        request.predicate = NSPredicate(format: "id IN %@", ids)
+        return try? context.fetch(request) as? [Self]
     }
 }

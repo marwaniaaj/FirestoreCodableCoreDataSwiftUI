@@ -30,7 +30,6 @@ public class Book: NSManagedObject, Codable {
         // Create or update.
         self.init(id: documentId, context: context)
 
-
         self.id = documentId
         self.title = try? container.decode(String.self, forKey: .title)
         self.titleDescription = try? container.decode(String.self, forKey: .description)

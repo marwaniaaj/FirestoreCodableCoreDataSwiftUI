@@ -34,7 +34,10 @@ public class Author: NSManagedObject, Codable {
 
         if let booksDocRefArray = try? container.decode([DocumentReference].self, forKey: .books) {
             let bookIds = booksDocRefArray.map(\.documentID)
-            self.books = Book.fetchNSSetById(bookIds, context: context)
+            
+            if let booksArray = Book.fetchArrayById(bookIds, context: context) {
+                self.addBooks(booksArray)
+            }
         }
         self.website = try container.decode(String.self, forKey: .website)
     }
