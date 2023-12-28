@@ -141,13 +141,19 @@ extension FirestoreManager{
 
 // MARK: - Document References
 extension FirestoreManager {
-    
+
+    /// Get an array of book `DocumentReference`.
+    /// - Parameter ids: Array of books DocumentIDs.
+    /// - Returns: Array of `DocumentReference` for given ids.
     static func getBooksDocumentReferences(_ ids: [String]) -> [DocumentReference] {
         return ids.compactMap { id in
             return Firestore.firestore().collection("books").document(id)
         }
     }
-
+    
+    /// Get author `DocumentReference`.
+    /// - Parameter id: Author DocumentID.
+    /// - Returns: `DocumentReference` of given authorId.
     static func getAuthorDocumentReference(_ id: String?) -> DocumentReference? {
         if let id, !id.isEmpty {
             return Firestore.firestore().collection("authors").document(id)
