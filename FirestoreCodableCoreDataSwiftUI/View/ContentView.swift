@@ -39,7 +39,7 @@ struct ContentView: View {
                             Text(author.authorName)
                                 .font(.headline).lineLimit(1)
 
-                            Text(author.booksList, format: .list(type: .and))
+                            Text(author.booksString, format: .list(type: .and))
                                 .foregroundColor(.secondary)
                         }
                     }
