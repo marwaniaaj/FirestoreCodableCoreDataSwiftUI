@@ -15,15 +15,13 @@ extension Author {
         set { name = newValue }
     }
 
-    var booksListString: String {
-        if let books {
-            let result = books.allObjects as? [Book] ?? []
-            return result.map(\.bookTitle).joined(separator: ", ")
-        }
-        return NSLocalizedString("Unrecognized", comment: "Unrecognized book")
+    var booksList: [Book] {
+        guard let books else { return [] }
+        let allBooks = (books.allObjects as? [Book] ?? [])
+        return allBooks.sorted { $0.bookPublishDate < $1.bookPublishDate }
     }
 
-    var booksList: [String] {
+    var booksString: [String] {
         guard let books else { return [] }
         let allBooks = (books.allObjects as? [Book] ?? [])
         return allBooks.map(\.bookTitle)
@@ -32,5 +30,15 @@ extension Author {
     var booksIdList: [String]? {
         guard let books else { return nil }
         return (books.allObjects as? [Book])?.compactMap(\.id)
+    }
+}
+
+extension Author {
+    func addBooks(_ books: [Book]?) {
+        books?.forEach { book in
+            if !self.booksList.contains(book) {
+                self.addToBooks(book)
+            }
+        }
     }
 }
